@@ -1,0 +1,14 @@
+.header {
+	background: #ff7547;
+}
+
+.header_logo {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	margin: 0;
+}
+
+.layout {
+	height: 100%;
+}
