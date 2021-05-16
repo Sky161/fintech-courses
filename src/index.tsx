@@ -4,10 +4,13 @@ import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 import { Layout } from './ui/components/layout/layout.component';
 import './ui/styles/global.css';
+import { Routes } from './ui/components/routes.component';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Layout />
+		<Layout>
+			<Routes />
+		</Layout>
 	</React.StrictMode>,
 	document.getElementById('root'),
 );

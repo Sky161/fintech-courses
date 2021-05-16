@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, ReactNode } from 'react';
 import { Layout as LayoutAntd } from 'antd';
 import { Typography } from 'antd';
 import css from './layout.module.css';
@@ -6,7 +6,12 @@ import css from './layout.module.css';
 const { Header, Content } = LayoutAntd;
 const { Title } = Typography;
 
-export const Layout = memo(() => {
+interface LayoutProps {
+	children: ReactNode;
+}
+
+export const Layout = memo((props: LayoutProps) => {
+	const { children } = props;
 	return (
 		<LayoutAntd className={css.layout}>
 			<Header className={css.header}>
@@ -14,7 +19,7 @@ export const Layout = memo(() => {
 					Fintech Courses
 				</Title>
 			</Header>
-			<Content>Content</Content>
+			<Content>{children}</Content>
 		</LayoutAntd>
 	);
 });
