@@ -5,12 +5,15 @@ import 'antd/dist/antd.css';
 import { Layout } from './ui/components/layout/layout.component';
 import './ui/styles/global.css';
 import { Routes } from './ui/components/routes.component';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Layout>
-			<Routes />
-		</Layout>
+		<BrowserRouter>
+			<Layout>
+				<Routes />
+			</Layout>
+		</BrowserRouter>
 	</React.StrictMode>,
 	document.getElementById('root'),
 );
