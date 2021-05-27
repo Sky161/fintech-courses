@@ -1,0 +1,14 @@
+.container {
+	background: #fff;
+	min-height: 100%;
+}
+
+.content {
+	padding: 0 24px 16px;
+}
+
+.media {
+	max-width: 1280px;
+	display: block;
+	margin: 20px auto;
+}

@@ -16,7 +16,7 @@
   "plugins": ["prettier", "@typescript-eslint"],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
-    "no-console": ["error"],
+    "no-console": "warn",
     "prettier/prettier": "error",
     "@typescript-eslint/adjacent-overload-signatures": "off",
     "@typescript-eslint/array-type": "off",

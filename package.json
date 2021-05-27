@@ -13,6 +13,7 @@
     "antd": "^4.15.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-player": "^2.9.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "typescript": "^4.1.2",
@@ -22,7 +23,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "tsc:check": "tsc",
+    "eslint:check": "eslint src/** --ext .ts --ext .tsx",
+    "ci:check": "yarn run test & yarn run tsc:check && yarn run eslint:check"
   },
   "browserslist": {
     "production": [
