@@ -1,0 +1,8 @@
+{
+  "name": "fintech-courses",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "cd ./fintech-courses-be && yarn && yarn start",
+    "heroku-postbuild": "cd ./fintech-courses-be && yarn && yarn build"
+  },
+}
