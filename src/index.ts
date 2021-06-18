@@ -13,8 +13,8 @@ dotenv.config();
 app.use(express.static(path.join(__dirname, '../', '/fintech-courses-fe/build')));
 
 //USE ROUTES
-app.get('/', (req, res) => {
-	res.sendFile('index.html');
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, '../', '/fintech-courses-fe/build', 'index.html'));
 });
 
 //RUN APPLICATION
