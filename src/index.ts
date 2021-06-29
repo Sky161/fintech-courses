@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import { coursesRouter } from './routes/courses.route';
 
 const PORT = process.env.PORT ?? 8080;
 
@@ -16,6 +17,7 @@ app.use(express.static(path.join(__dirname, '../', '/fintech-courses-fe/build'))
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, '../', '/fintech-courses-fe/build', 'index.html'));
 });
+app.use('/courses', coursesRouter);
 
 //RUN APPLICATION
 if (process.env.DB_URL) {
