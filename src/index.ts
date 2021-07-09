@@ -3,6 +3,7 @@ import path from 'path';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import { courseRouter } from './routes/course.route';
+import bodyParser from 'body-parser';
 
 const PORT = process.env.PORT ?? 8080;
 
@@ -12,6 +13,8 @@ dotenv.config();
 
 //USE MIDDLEWARES
 app.use(express.static(path.join(__dirname, '../', '/fintech-courses-fe/build')));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //USE ROUTES
 app.use('/api/course', courseRouter);

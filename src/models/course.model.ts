@@ -1,8 +1,28 @@
 import { Schema } from 'mongoose';
 import * as mongoose from 'mongoose';
-import { CourseDto } from '../dto/course.dto';
 
-type Course = CourseDto & mongoose.Document;
+interface CourseText {
+	type: 'TEXT';
+	data: string;
+}
+
+interface CourseImg {
+	type: 'IMG';
+	src: string;
+}
+
+interface CourseVideo {
+	type: 'VIDEO';
+	src: string;
+}
+
+type CourseBody = CourseText | CourseImg | CourseVideo;
+
+export interface Course extends mongoose.Document {
+	title: string;
+	description?: string;
+	body?: Array<CourseBody>;
+}
 
 const courseSchema = new Schema<Course>({
 	title: { type: String, required: true },
