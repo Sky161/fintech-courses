@@ -42,3 +42,12 @@ courseRouter.patch('/update/:id', async (req, res) => {
 		res.status(403).json(e);
 	}
 });
+
+courseRouter.delete('/remove/:id', async (req, res) => {
+	try {
+		await CourseModel.deleteOne({ _id: req.params.id });
+		res.sendStatus(200);
+	} catch (e) {
+		res.status(500).json(e);
+	}
+});
