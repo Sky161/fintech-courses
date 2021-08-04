@@ -1,8 +1,7 @@
 import { memo } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { ListCourses } from '../pages/list.page';
-import { LIST_COURSES_MOCK } from '../../mocks/list-courses.mock';
 import { DetailCourse } from '../pages/detail/detail.page';
+import { ListCoursesContainer } from '../pages/list/list.container';
 
 export const Routes = memo(() => (
 	<Switch>
@@ -10,7 +9,7 @@ export const Routes = memo(() => (
 			<DetailCourse />
 		</Route>
 		<Route path="/">
-			<ListCourses data={LIST_COURSES_MOCK} />
+			<ListCoursesContainer />
 		</Route>
 	</Switch>
 ));

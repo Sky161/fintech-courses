@@ -7,7 +7,7 @@ interface CourseContext {
 	httpClient: HttpClient;
 }
 
-interface CourseService {
+export interface CourseService {
 	list: Promise<RemoteData<ZodError | Error, Course[]>>;
 }
 
