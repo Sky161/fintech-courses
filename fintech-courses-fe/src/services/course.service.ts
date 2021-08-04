@@ -1,31 +1,41 @@
-import { failure, RemoteData, success } from '@devexperts/remote-data-ts';
-import { ZodError } from 'zod';
-import { HttpClient } from '../clients/http.client';
-import { Course, courseListDTO } from './dto/course.dto';
+import { failure, success } from '@devexperts/remote-data-ts';
+import { HttpClient, ResponseData } from '../clients/http.client';
+import { Course, courseDTO, courseListDTO } from './dto/course.dto';
 
 interface CourseContext {
 	httpClient: HttpClient;
 }
 
 export interface CourseService {
-	list: Promise<RemoteData<ZodError | Error, Course[]>>;
+	getListCourses: () => ResponseData<Course[]>;
+	getCourse: (id: string) => ResponseData<Course>;
 }
 
 export const createCourseService = (ctx: CourseContext): CourseService => {
-	const list = ctx.httpClient
-		.GET('/api/course/list')
-		.then(data => data.json())
-		.then(data => courseListDTO.safeParse(data))
-		.then(data => {
-			if (data.success) {
-				return success(data.data);
-			} else {
-				return failure(data.error);
-			}
-		})
-		.catch(error => failure(error));
+	const getListCourses = async () => {
+		try {
+			const request = await ctx.httpClient.GET('/api/course/list');
+			const data = await request.json();
+			const parsedData = courseListDTO.parse(data);
+			return success(parsedData);
+		} catch (e) {
+			return failure(e);
+		}
+	};
+
+	const getCourse = async (id: string) => {
+		try {
+			const request = await ctx.httpClient.GET(`/api/course/${id}`);
+			const data = await request.json();
+			const parsedData = courseDTO.parse(data);
+			return success(parsedData);
+		} catch (e) {
+			return failure(e);
+		}
+	};
 
 	return {
-		list,
+		getListCourses,
+		getCourse,
 	};
 };

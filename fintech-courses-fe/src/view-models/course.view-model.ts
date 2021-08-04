@@ -1,8 +1,8 @@
 import { CourseService } from '../services/course.service';
-import { RemoteData, remoteData } from '@devexperts/remote-data-ts';
+import { remoteData } from '@devexperts/remote-data-ts';
 import { pipe } from 'fp-ts/lib/function';
 import { array } from 'fp-ts';
-import { ZodError } from 'zod';
+import { ResponseData } from '../clients/http.client';
 
 interface CourseViewModelContext {
 	courseService: CourseService;
@@ -15,17 +15,19 @@ export interface Course {
 }
 
 export interface CourseViewModel {
-	list: Promise<RemoteData<ZodError | Error, Course[]>>;
+	getList: () => ResponseData<Course[]>;
 }
 
 export const createCourseViewModel = (ctx: CourseViewModelContext): CourseViewModel => {
-	const list = ctx.courseService.list.then(data =>
-		remoteData.map(data, data =>
+	const getList = async () => {
+		const data = await ctx.courseService.getListCourses();
+		return remoteData.map(data, data =>
 			pipe(
 				data,
 				array.map(course => ({ id: course.id, title: course.title, description: course.description })),
 			),
-		),
-	);
-	return { list };
+		);
+	};
+
+	return { getList };
 };

@@ -5,7 +5,7 @@ import { ErrorWithStatus } from '../utils/errors.utils';
 export const courseRouter = Router();
 
 courseRouter.get('/list', async (req, res) => {
-	const list = await CourseModel.find({});
+	const list = await CourseModel.find({}, ['id', 'title', 'description']);
 	res.json(list);
 });
 
@@ -14,8 +14,9 @@ courseRouter.get('/:id', async (req, res) => {
 		const item = await CourseModel.findById(req.params.id);
 		if (item === null) {
 			throw new ErrorWithStatus(404, 'Not Found');
+		} else {
+			res.json(item.toJSON());
 		}
-		res.json(item.toJSON());
 	} catch (e) {
 		res.status(e.status || 500).json({ error: e.message });
 	}

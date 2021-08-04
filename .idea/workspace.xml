@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="60a78bbd-8fb5-4695-af5e-d18257c3b691" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintech-courses-fe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/fintech-courses-fe/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintech-courses-fe/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/fintech-courses-fe/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech-courses-fe/src/clients/http.client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fintech-courses-fe/src/clients/http.client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech-courses-fe/src/hooks/use-request.hook.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fintech-courses-fe/src/hooks/use-request.hook.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech-courses-fe/src/services/course.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fintech-courses-fe/src/services/course.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech-courses-fe/src/ui/pages/list/list.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fintech-courses-fe/src/ui/pages/list/list.container.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech-courses-fe/src/view-models/course.view-model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fintech-courses-fe/src/view-models/course.view-model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/course.route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/course.route.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +49,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="npm.start">
