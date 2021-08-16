@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60a78bbd-8fb5-4695-af5e-d18257c3b691" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/models/question.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintech-courses-fe/src/hooks/use-request.hook.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fintech-courses-fe/src/hooks/use-request.hook.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintech-courses-fe/src/ui/pages/list/list.container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fintech-courses-fe/src/ui/pages/list/list.container.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintech-courses-fe/src/view-models/course.view-model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fintech-courses-fe/src/view-models/course.view-model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/course.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/course.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/course.route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/course.route.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +53,7 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="npm.start:dev">
+  <component name="RunManager" selected="npm.start:local">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -87,8 +84,19 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start:local" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/fintech-courses-fe/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:local" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start:local" />
         <item itemvalue="npm.start:dev" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
