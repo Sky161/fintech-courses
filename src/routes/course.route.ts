@@ -28,7 +28,7 @@ courseRouter.post('/add', async (req, res) => {
 		const newCourse = await course.save();
 		res.json(newCourse);
 	} catch (e) {
-		return res.status(403).json(e);
+		return res.status(409).json(e);
 	}
 });
 
@@ -40,7 +40,7 @@ courseRouter.patch('/update/:id', async (req, res) => {
 		}
 		res.json(data.toJSON());
 	} catch (e) {
-		res.status(403).json(e);
+		res.status(409).json(e);
 	}
 });
 

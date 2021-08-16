@@ -27,7 +27,7 @@ export interface Course extends mongoose.Document {
 const courseSchema = new Schema<Course>({
 	title: { type: String, required: true },
 	description: String,
-	body: [{ type: String, src: String, data: String }],
+	body: [{ type: { type: String, required: true }, src: String, data: String }],
 });
 
 courseSchema.set('toJSON', {

@@ -3,19 +3,26 @@ import { remoteData } from '@devexperts/remote-data-ts';
 import { pipe } from 'fp-ts/lib/function';
 import { array } from 'fp-ts';
 import { ResponseData } from '../clients/http.client';
+import { CourseBody } from '../services/dto/course.dto';
 
 interface CourseViewModelContext {
 	courseService: CourseService;
 }
 
-export interface Course {
+export interface CourseItem {
 	id: string;
 	title: string;
 	description?: string;
 }
 
+export interface Course {
+	title: string;
+	body?: CourseBody[];
+}
+
 export interface CourseViewModel {
-	getList: () => ResponseData<Course[]>;
+	getList: () => ResponseData<CourseItem[]>;
+	getCourse: (id: string) => ResponseData<Course>;
 }
 
 export const createCourseViewModel = (ctx: CourseViewModelContext): CourseViewModel => {
@@ -29,5 +36,10 @@ export const createCourseViewModel = (ctx: CourseViewModelContext): CourseViewMo
 		);
 	};
 
-	return { getList };
+	const getCourse = async (id: string) => {
+		const data = await ctx.courseService.getCourse(id);
+		return remoteData.map(data, data => ({ title: data.title, body: data.body }));
+	};
+
+	return { getList, getCourse };
 };

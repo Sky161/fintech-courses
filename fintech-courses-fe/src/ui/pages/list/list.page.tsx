@@ -1,9 +1,9 @@
 import { List, Card } from 'antd';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { fold, RemoteData } from '@devexperts/remote-data-ts';
+import { RemoteData } from '@devexperts/remote-data-ts';
 import { ZodError } from 'zod';
-import { pipe } from 'fp-ts/lib/function';
+import { RenderRemoteData } from '../../components/render-remote-data';
 
 interface ListItemCourse {
 	id: string;
@@ -15,15 +15,12 @@ interface ListCoursesProps {
 	data: RemoteData<ZodError | Error, Array<ListItemCourse>>;
 }
 
-export const ListCourses = memo((props: ListCoursesProps) => {
+export const ListCoursesPage = memo((props: ListCoursesProps) => {
 	const { data } = props;
-	return pipe(
-		data,
-		fold(
-			() => <p>Loading</p>,
-			() => <p>Loading</p>,
-			() => <p>Loading</p>,
-			data => (
+	return (
+		<RenderRemoteData
+			value={data}
+			success={data => (
 				<List
 					grid={configGrid}
 					dataSource={data}
@@ -35,8 +32,8 @@ export const ListCourses = memo((props: ListCoursesProps) => {
 						</List.Item>
 					)}
 				/>
-			),
-		),
+			)}
+		/>
 	);
 });
 
